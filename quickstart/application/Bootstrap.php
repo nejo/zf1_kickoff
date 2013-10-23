@@ -8,5 +8,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$view = $this->getResource('view');
 		$view->doctype('HTML5');
 	}
+
+	protected function _initHeadtitle()
+	{
+		$view = $this->getResource('view');
+		$view->headTitle('Zend Framework 1 Quickstart Application');
+		$view->headTitle()->setSeparator(' | ');
+	}
 }
 
