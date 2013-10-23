@@ -1,0 +1,15 @@
+{
+    "name": "nejo/zf1_kickoff",
+    "description": "Kick-off code for Zend Framework 1 projects",
+    "require": {
+        "zendframework/zendframework1": "1.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alejandro Cornejo",
+            "email": "acornejovila@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
