@@ -15,5 +15,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$view->headTitle('Zend Framework 1 Quickstart Application');
 		$view->headTitle()->setSeparator(' | ');
 	}
+
+	protected function _initMeta()
+	{
+		$view = $this->getResource('view');
+		$view->headMeta()->setHttpEquiv('Content-Type', 'text/html; charset=utf-8');
+	}
 }
 
