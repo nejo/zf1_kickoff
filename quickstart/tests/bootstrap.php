@@ -9,6 +9,6 @@ defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'testing'));
 
 /** Vendor Autoload */
-require_once realpath(APPLICATION_PATH . '/../vendor/autoload.php');
+require_once realpath(APPLICATION_PATH . '/../../vendor/autoload.php');
 
 Zend_Loader_Autoloader::getInstance();
