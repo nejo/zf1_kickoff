@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Guestbook extends Twitter_Form
+class Application_Form_Guestbook extends Twitter_Bootstrap_Form_Vertical
 {
 
     public function init()
