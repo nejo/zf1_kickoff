@@ -2,7 +2,8 @@
     "name": "nejo/zf1_kickoff",
     "description": "Kick-off code for Zend Framework 1 projects",
     "require": {
-        "zendframework/zendframework1": "1.*"
+        "zendframework/zendframework1": "1.*",
+	"emagister/zend-form-decorators-bootstrap": "dev-master"
     },
     "license": "MIT",
     "authors": [
