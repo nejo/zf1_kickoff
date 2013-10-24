@@ -14,6 +14,13 @@ class GuestbookController extends Zend_Controller_Action
         $this->view->entries = $guestbook->fetchAll();
     }
 
+    public function signAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
