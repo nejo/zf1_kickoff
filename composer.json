@@ -3,7 +3,7 @@
     "description": "Kick-off code for Zend Framework 1 projects",
     "require": {
         "zendframework/zendframework1": "1.*",
-        "komola/bootstrap-zend-framework": "dev-master"
+	"emagister/zend-form-decorators-bootstrap": "dev-master"
     },
     "license": "MIT",
     "authors": [

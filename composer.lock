@@ -3,47 +3,57 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ccd024545fc6a5adcd9bc4776e0bb4b0",
+    "hash": "770bcd31ee2ae844265d173146f5e1b8",
     "packages": [
         {
-            "name": "komola/bootstrap-zend-framework",
+            "name": "emagister/zend-form-decorators-bootstrap",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/komola/Bootstrap-Zend-Framework.git",
-                "reference": "6c09d570f26b56e9f5fbaeabd9d449d4f00bf255"
+                "url": "https://github.com/Emagister/zend-form-decorators-bootstrap.git",
+                "reference": "323abe0afba89e898d7c1471d606411800277f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/komola/Bootstrap-Zend-Framework/zipball/6c09d570f26b56e9f5fbaeabd9d449d4f00bf255",
-                "reference": "6c09d570f26b56e9f5fbaeabd9d449d4f00bf255",
+                "url": "https://api.github.com/repos/Emagister/zend-form-decorators-bootstrap/zipball/323abe0afba89e898d7c1471d606411800277f57",
+                "reference": "323abe0afba89e898d7c1471d606411800277f57",
                 "shasum": ""
             },
             "require": {
-                "zendframework/zendframework1": "1.*"
+                "php": ">=5.2.4"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Twitter_": "library"
+                    "Twitter_": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "include-path": [
-                "library/"
+                ""
             ],
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Sebastian Hoitz",
-                    "email": "hoitz@komola.de",
-                    "homepage": "http://komola.de"
+                    "name": "EmagisterTech",
+                    "email": "php@emagister.com",
+                    "homepage": "http://engineering.emagister.com",
+                    "role": "Developer"
                 }
             ],
-            "description": "Twitter bootstrap for ZF1",
-            "time": "2013-01-23 10:24:44"
+            "description": "Zend_Form decorators for Twitter's Bootstrap UI",
+            "homepage": "https://emagister.github.com/zend-form-decorators-bootstrap",
+            "keywords": [
+                "bootstrap",
+                "twitter",
+                "twitter bootstrap",
+                "zend",
+                "zend form",
+                "zend form decorators"
+            ],
+            "time": "2013-07-12 08:51:54"
         },
         {
             "name": "zendframework/zendframework1",
@@ -105,7 +115,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "komola/bootstrap-zend-framework": 20
+        "emagister/zend-form-decorators-bootstrap": 20
     },
     "platform": [
 
