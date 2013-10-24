@@ -11,6 +11,11 @@ resources.db.params.charset = "utf8"
 resources.layout.layoutPath = APPLICATION_PATH "/layouts/scripts/"
 resources.view[] = 
 resources.view.encoding = "UTF-8"
+resources.db.adapter = "PDO_MYSQL"
+resources.db.params.host = "localhost"
+resources.db.params.username = "root"
+resources.db.params.password = ""
+resources.db.params.dbname = "zf1_kickoff" 
 
 [staging : production]
 
