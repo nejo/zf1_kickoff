@@ -3,8 +3,48 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "234350b0d47be2b9b138631144015f17",
+    "hash": "ccd024545fc6a5adcd9bc4776e0bb4b0",
     "packages": [
+        {
+            "name": "komola/bootstrap-zend-framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/komola/Bootstrap-Zend-Framework.git",
+                "reference": "6c09d570f26b56e9f5fbaeabd9d449d4f00bf255"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/komola/Bootstrap-Zend-Framework/zipball/6c09d570f26b56e9f5fbaeabd9d449d4f00bf255",
+                "reference": "6c09d570f26b56e9f5fbaeabd9d449d4f00bf255",
+                "shasum": ""
+            },
+            "require": {
+                "zendframework/zendframework1": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Twitter_": "library"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "library/"
+            ],
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Hoitz",
+                    "email": "hoitz@komola.de",
+                    "homepage": "http://komola.de"
+                }
+            ],
+            "description": "Twitter bootstrap for ZF1",
+            "time": "2013-01-23 10:24:44"
+        },
         {
             "name": "zendframework/zendframework1",
             "version": "1.12.3",
@@ -64,9 +104,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "komola/bootstrap-zend-framework": 20
+    },
     "platform": [
 
     ],
