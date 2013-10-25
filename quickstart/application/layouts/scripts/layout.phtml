@@ -6,21 +6,21 @@
         <?php echo $this->headLink() ?>
     </head>
     <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <a class="brand" href="<?php echo $this->url(array('controller' => 'index'), 'default', true) ?>">ZF1 Quickstart Application</a>
-            <ul class="nav">
-                <li><a href="<?php echo $this->url(
-                        array('controller'=>'guestbook'),
-                        'default',
-                        true) ?>">Guestbook</a></li>
-            </ul>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <a class="brand" href="<?php echo $this->url(array('controller' => 'index'), 'default', true) ?>">ZF1 Quickstart Application</a>
+                <ul class="nav">
+                    <li><a href="<?php echo $this->url(
+                            array('controller'=>'guestbook'),
+                            'default',
+                            true) ?>">Guestbook</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        <?php echo $this->layout()->content ?>
-    </div>
+        <div class="container">
+            <?php echo $this->layout()->content ?>
+        </div>
 
         <?php echo $this->headScript() ?>
 	</body>
