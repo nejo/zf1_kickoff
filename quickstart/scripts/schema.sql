@@ -1,7 +1,8 @@
 CREATE TABLE IF NOT EXISTS guestbook (
-    id INT NOT NULL AUTO_INCREMENT,
-    comment TEXT NULL,
-    created DATETIME NOT NULL,
+    id              INT NOT NULL AUTO_INCREMENT,
+    user_id         INT NULL,
+    comment         TEXT NULL,
+    created         DATETIME NOT NULL,
     PRIMARY KEY (id),
     INDEX `date_index` USING BTREE (created)
 );
