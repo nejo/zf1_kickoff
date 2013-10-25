@@ -5,8 +5,6 @@ class AuthController extends Zend_Controller_Action
 
     public function loginAction()
     {
-        $db = $this->_getParam('db');
-
         $form = new Application_Form_Auth_Login();
 
         $form->setAction($this->view->url());
@@ -17,29 +15,38 @@ class AuthController extends Zend_Controller_Action
             
             if ($form->isValid($request->getPost())) {
 
-                $adapter = new Zend_Auth_Adapter_DbTable(
-                    $db,
-                    'users',
-                    'username',
-                    'password',
-                    'MD5(CONCAT(?, password_salt))'
-                );
-
-                $adapter->setIdentity($form->getValue('username'));
-                $adapter->setCredential($form->getValue('password'));
-
-                $auth   = Zend_Auth::getInstance();
-                $result = $auth->authenticate($adapter);
-
-                if ($result->isValid()) {
+                if ($this->_verifyLogin($form->getValues())) {
                     $this->_helper->FlashMessenger('Successful Login');
-                    $this->_redirect('/');
-                    return;
+                    $this->_helper->redirector('index', 'index');
                 }
             }
         }
 
         $this->view->form = $form;
+    }
+
+    /**
+     * @param array $values
+     *
+     * @return bool
+     */
+    protected function _verifyLogin($values)
+    {
+        $adapter = $this->_getAuthAdapter();
+
+        $adapter->setIdentity($values['username']);
+        $adapter->setCredential($values['password']);
+
+        $auth   = Zend_Auth::getInstance();
+        $result = $auth->authenticate($adapter);
+
+        if ($result->isValid()) {
+            $user = $adapter->getResultRowObject();
+            $auth->getStorage()->write($user);
+            return true;
+        }
+
+        return false;
     }
 
 }
