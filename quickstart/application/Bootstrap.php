@@ -40,5 +40,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->headLink()->appendStylesheet('/css/bootstrap.min.css');
         $view->headLink()->appendStylesheet('/css/bootstrap-responsive.min.css');
     }
+
+    protected function _initJavascripts()
+    {
+        $view = $this->getResource('view');
+        $view->headScript()->appendFile('/js/bootstrap.min.js');
+    }
 }
 
