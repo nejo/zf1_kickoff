@@ -29,6 +29,7 @@ class AuthController extends Zend_Controller_Action
      * @param array $values
      *
      * @return bool
+     *
      */
     protected function _verifyLogin($values)
     {
@@ -51,6 +52,7 @@ class AuthController extends Zend_Controller_Action
 
     /**
      * @return Zend_Auth_Adapter_DbTable
+     *
      */
     protected function _getAuthAdapter()
     {
@@ -65,4 +67,13 @@ class AuthController extends Zend_Controller_Action
         return $authAdapter;
     }
 
+    public function logoutAction()
+    {
+        Zend_Auth::getInstance()->clearIdentity();
+        $this->_helper->redirector('index');
+    }
+
+
 }
+
+
