@@ -49,4 +49,20 @@ class AuthController extends Zend_Controller_Action
         return false;
     }
 
+    /**
+     * @return Zend_Auth_Adapter_DbTable
+     */
+    protected function _getAuthAdapter()
+    {
+        $dbAdapter = Zend_Db_Table::getDefaultAdapter();
+        $authAdapter = new Zend_Auth_Adapter_DbTable($dbAdapter);
+
+        $authAdapter->setTableName('users')
+            ->setIdentityColumn('username')
+            ->setCredentialColumn('password')
+            ->setCredentialTreatment('SHA1(CONCAT(?,salt))');
+
+        return $authAdapter;
+    }
+
 }
