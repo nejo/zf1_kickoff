@@ -9,13 +9,9 @@ class Application_Form_Guestbook extends Twitter_Bootstrap_Form_Vertical
         $this->setMethod('post');
  
         // Add an email element
-        $this->addElement('text', 'email', array(
-            'label'      => 'Your email address:',
+        $this->addElement('select', 'user_id', array(
+            'label'      => 'User:',
             'required'   => true,
-            'filters'    => array('StringTrim'),
-            'validators' => array(
-                'EmailAddress',
-            )
         ));
  
         // Add the comment element
