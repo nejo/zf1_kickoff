@@ -5,10 +5,8 @@ class Application_Model_DbTable_Users extends Zend_Db_Table_Abstract
 
     protected $_name = 'users';
 
-    protected $_primary = 'id';
+    protected $_rowClass = 'Model_Row_User';
 
-    protected $_sequence = true;
-
-    protected $_dependentTables = array('Guestbook');
+    protected $_dependentTables = array('Model_DbTable_Guestbook');
 
 }

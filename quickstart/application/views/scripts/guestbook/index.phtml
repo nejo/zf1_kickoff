@@ -12,6 +12,8 @@
 
 <dl>
     <?php foreach ($this->entries as $entry): ?>
+        <?php var_dump(get_class($entry)); var_dump($entry->getUser());
+        exit('dumped'); ?>
     <dt><?php echo $this->escape($entry->userId) ?> @ <?php echo date($entry->created); ?></dt>
     <dd><?php echo $this->escape($entry->comment) ?></dd>
     <?php endforeach ?>
