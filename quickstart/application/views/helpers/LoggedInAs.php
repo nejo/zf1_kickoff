@@ -1,6 +1,6 @@
 <?php
 
-class Application_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
+class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
 {
     public function loggedInAs()
     {
@@ -19,12 +19,6 @@ class Application_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             return 'Welcome ' . $username . '. Logout';
         }
 
-        $request    = Zend_Controller_Front::getInstance()->getRequest();
-        $controller = $request->getControllerName();
-        $action     = $request->getActionName();
-        if ($controller == 'auth' && $action == 'login') {
-            return '';
-        }
         $loginUrl = $this->view->url(
             array('controller' => 'auth', 'action' => 'login')
         );
