@@ -53,6 +53,9 @@
           <viewControllerScriptsDirectory forControllerName="Auth">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="auth">
+            <viewScriptFile forActionName="login"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
