@@ -3,6 +3,7 @@
     "description": "Kick-off code for Zend Framework 1 projects",
     "require": {
         "zendframework/zendframework1": "1.*",
+	"twbs/bootstrap": "2.3.2",
 	"emagister/zend-form-decorators-bootstrap": "dev-master"
     },
     "license": "MIT",

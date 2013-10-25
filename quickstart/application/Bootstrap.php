@@ -33,5 +33,18 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$view = $this->getResource('view');
 		$view->headMeta()->setHttpEquiv('Content-Type', 'text/html; charset=utf-8');
 	}
+
+    protected function _initStylesheets()
+    {
+        $view = $this->getResource('view');
+        $view->headLink()->appendStylesheet('/css/bootstrap.min.css');
+        $view->headLink()->appendStylesheet('/css/bootstrap-responsive.min.css');
+    }
+
+    protected function _initJavascripts()
+    {
+        $view = $this->getResource('view');
+        $view->headScript()->appendFile('/js/bootstrap.min.js');
+    }
 }
 
