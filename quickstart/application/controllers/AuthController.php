@@ -39,7 +39,7 @@ class AuthController extends Zend_Controller_Action
             }
         }
 
-        $this->view->loginForm = $form;
+        $this->view->form = $form;
     }
 
 }
