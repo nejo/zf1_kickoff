@@ -13,9 +13,9 @@ class Application_Model_Guestbook
     protected $_created;
 
 	/**
-	* @var string
+	* @var int
 	*/
-    protected $_email;
+    protected $_userId;
 
 	/**
 	* @var int
@@ -70,15 +70,15 @@ class Application_Model_Guestbook
         return $this->_comment;
     }
 
-    public function setEmail($email)
+    public function setUserId($userId)
     {
-        $this->_email = (string) $email;
+        $this->_userId = (string) $userId;
         return $this;
     }
 
-    public function getEmail()
+    public function getUserId()
     {
-        return $this->_email;
+        return $this->_userId;
     }
 
     public function setCreated($ts)

@@ -60,7 +60,6 @@ class Application_Model_GuestbookMapper
         foreach ($resultSet as $row) {
             $entry = new Application_Model_Guestbook();
             $entry->setId($row->id)
-                  ->setEmail($row->email)
                   ->setComment($row->comment)
                   ->setCreated($row->created);
             $entries[] = $entry;
