@@ -22,11 +22,11 @@ class Application_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
         $request    = Zend_Controller_Front::getInstance()->getRequest();
         $controller = $request->getControllerName();
         $action     = $request->getActionName();
-        if ($controller == 'auth' && $action == 'index') {
+        if ($controller == 'auth' && $action == 'login') {
             return '';
         }
         $loginUrl = $this->view->url(
-            array('controller' => 'auth', 'action' => 'index')
+            array('controller' => 'auth', 'action' => 'login')
         );
 
         return 'Login';
