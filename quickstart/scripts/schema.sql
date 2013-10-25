@@ -10,7 +10,9 @@ CREATE TABLE IF NOT EXISTS users (
     id          INT NOT NULL AUTO_INCREMENT,
     username    VARCHAR(50),
     password    VARCHAR(50),
+    salt        VARCHAR(50) NOT NULL,
+    role        VARCHAR(50) NOT NULL,
+    created     DATETIME NOT NULL,
     name        VARCHAR(100) NULL,
-    address     VARCHAR(150) NULL,
     PRIMARY KEY (id)
 );

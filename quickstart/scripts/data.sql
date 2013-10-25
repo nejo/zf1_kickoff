@@ -13,6 +13,13 @@ VALUES
 );
 
 REPLACE INTO users
-    (username, password, name, address)
-VALUES
-    ('admin', SHA1('admin'), 'Administrator', '');
+    (username, password, name)
+    VALUES
+    (
+        'admin',
+        SHA1('adminSFGHS6589569yERUERuERURUsdfURER6UBRy'),
+        'SFGHS6589569yERUERuERURUsdfURER6UBRy',
+        'administrator',
+        NOW(),
+        'Administrator Name'
+    );
