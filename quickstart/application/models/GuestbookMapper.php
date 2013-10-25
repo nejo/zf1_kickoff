@@ -60,8 +60,9 @@ class Application_Model_GuestbookMapper
         foreach ($resultSet as $row) {
             $entry = new Application_Model_Guestbook();
             $entry->setId($row->id)
-                  ->setComment($row->comment)
-                  ->setCreated($row->created);
+                ->setUserId($row->user_id)
+                ->setComment($row->comment)
+                ->setCreated($row->created);
             $entries[] = $entry;
         }
         return $entries;
