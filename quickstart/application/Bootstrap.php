@@ -8,6 +8,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
          * http://framework.zend.com/manual/1.12/en/zend.cache.theory.html
          * http://framework.zend.com/manual/1.12/en/zend.application.available-resources.html
          * http://www.zfsnippets.com/snippets/view/id/72/bootstrap-cache-resource
+         *
+         * for routes
+         * http://stackoverflow.com/questions/6842639/zend-config-ini-caching
          */
     }
 
