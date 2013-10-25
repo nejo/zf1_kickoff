@@ -6,17 +6,17 @@
         <?php echo $this->headLink() ?>
     </head>
     <body>
-        <div id="header" style="background-color: #EEEEEE; height: 30px;">
-            <div id="header-logo" style="float: left">
-                <b>ZF1 Quickstart Application</b>
-            </div>
-            <div id="header-navigation" style="float: right">
-                <a href="<?php echo $this->url(
-                    array('controller'=>'guestbook'),
-                    'default',
-                    true) ?>">Guestbook</a>
-            </div>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <a class="brand" href="<?php echo $this->url(array('controller' => 'index'), 'default', true) ?>">ZF1 Quickstart Application</a>
+            <ul class="nav">
+                <li><a href="<?php echo $this->url(
+                        array('controller'=>'guestbook'),
+                        'default',
+                        true) ?>">Guestbook</a></li>
+            </ul>
         </div>
+    </div>
 
         <?php echo $this->layout()->content ?>
 
