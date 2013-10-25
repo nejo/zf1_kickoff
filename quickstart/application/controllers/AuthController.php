@@ -7,35 +7,39 @@ class AuthController extends Zend_Controller_Action
     {
         $db = $this->_getParam('db');
 
-        $loginForm = new Application_Form_Auth_Login();
+        $form = new Application_Form_Auth_Login();
 
-        $loginForm->setAction($this->view->url());
+        $form->setAction($this->view->url());
 
-        if ($loginForm->isValid($_POST)) {
+        $request = $this->getRequest();
 
-            $adapter = new Zend_Auth_Adapter_DbTable(
-                $db,
-                'users',
-                'username',
-                'password',
-                'MD5(CONCAT(?, password_salt))'
-            );
+        if ($request->isPost()) {
+            
+            if ($form->isValid($request->getPost())) {
 
-            $adapter->setIdentity($loginForm->getValue('username'));
-            $adapter->setCredential($loginForm->getValue('password'));
+                $adapter = new Zend_Auth_Adapter_DbTable(
+                    $db,
+                    'users',
+                    'username',
+                    'password',
+                    'MD5(CONCAT(?, password_salt))'
+                );
 
-            $auth   = Zend_Auth::getInstance();
-            $result = $auth->authenticate($adapter);
+                $adapter->setIdentity($form->getValue('username'));
+                $adapter->setCredential($form->getValue('password'));
 
-            if ($result->isValid()) {
-                $this->_helper->FlashMessenger('Successful Login');
-                $this->_redirect('/');
-                return;
+                $auth   = Zend_Auth::getInstance();
+                $result = $auth->authenticate($adapter);
+
+                if ($result->isValid()) {
+                    $this->_helper->FlashMessenger('Successful Login');
+                    $this->_redirect('/');
+                    return;
+                }
             }
-
         }
 
-        $this->view->loginForm = $loginForm;
+        $this->view->loginForm = $form;
     }
 
 }
