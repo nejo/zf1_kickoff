@@ -21,16 +21,14 @@ class GuestbookController extends Zend_Controller_Action
 
         $usersMapper = new Application_Model_UsersMapper();
         $usersSelector = $usersMapper->getUsersSelector();
-        $form->getElement('user_id')->setMultiOptions($usersSelector);
- 
+        $form->getElement('userId')->setMultiOptions($usersSelector);
+
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($request->getPost())) {
                 $comment = new Application_Model_Guestbook($form->getValues());
                 $mapper  = new Application_Model_GuestbookMapper();
                 $mapper->save($comment);
                 return $this->_helper->redirector('index');
-            } else {
-                exit('invalid');
             }
         }
  

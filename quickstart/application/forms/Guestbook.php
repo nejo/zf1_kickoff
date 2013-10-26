@@ -11,7 +11,7 @@ class Application_Form_Guestbook extends Twitter_Bootstrap_Form_Vertical
         // Add an email element
         $this->addElement(
             'select',
-            'user_id',
+            'userId',
             array(
                  'label'    => 'User:',
                  'required' => true,

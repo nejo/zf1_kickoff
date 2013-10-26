@@ -64,7 +64,7 @@ class Application_Model_UsersMapper
     public function getUsersSelector()
     {
         $usersList = $this->fetchAll();
-        $usersSelector[''] = "Please choose";
+        $usersSelector[0] = "Please choose";
 
         foreach ($usersList as $value) {
             $usersSelector[$value->id] = $value->username;
