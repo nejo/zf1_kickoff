@@ -27,7 +27,7 @@ class Application_Model_GuestbookMapper
     public function save(Application_Model_Guestbook $guestbook)
     {
         $data = array(
-            'email'   => $guestbook->getUserId(),
+            'user_id'   => $guestbook->getUserId(),
             'comment' => $guestbook->getComment(),
             'created' => date('Y-m-d H:i:s'),
         );

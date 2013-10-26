@@ -29,6 +29,8 @@ class GuestbookController extends Zend_Controller_Action
                 $mapper  = new Application_Model_GuestbookMapper();
                 $mapper->save($comment);
                 return $this->_helper->redirector('index');
+            } else {
+                exit('invalid');
             }
         }
  

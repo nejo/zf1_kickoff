@@ -11,6 +11,8 @@ defined('APPLICATION_ENV')
 /** Vendor Autoload */
 require_once realpath(APPLICATION_PATH . '/../../vendor/autoload.php');
 
+Zend_Loader_Autoloader::getInstance()->suppressNotFoundWarnings(false);
+
 // Create application, bootstrap, and run
 $application = new Zend_Application(
     APPLICATION_ENV,
