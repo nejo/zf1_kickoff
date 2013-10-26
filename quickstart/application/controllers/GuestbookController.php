@@ -19,7 +19,9 @@ class GuestbookController extends Zend_Controller_Action
         $request = $this->getRequest();
         $form    = new Application_Form_Guestbook();
 
-        $form->getElement('user_id')->setMultiOptions($this->_getUserSelector());
+        $usersMapper = new Application_Model_UsersMapper();
+        $usersSelector = $usersMapper->getUsersSelector();
+        $form->getElement('user_id')->setMultiOptions($usersSelector);
  
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($request->getPost())) {
@@ -31,24 +33,6 @@ class GuestbookController extends Zend_Controller_Action
         }
  
         $this->view->form = $form;
-    }
-
-    protected function _getUserSelector()
-    {
-        // List of Counties does not exist in Cache, read from DB
-        if (!$usersList = $this->getFromCache('users')) {
-
-            $usersMapper = new Application_Model_UsersMapper();
-            $usersDropdown = $usersMapper->createUsersSelector();
-
-            // Save DB Result in Cache
-            $this->addToCache('users', $usersDropdown);
-
-            return $usersDropdown;
-        } else {
-            // Return Country List from Cache
-            return $this->getFromCache('users');
-        }
     }
 
 }

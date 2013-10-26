@@ -57,4 +57,19 @@ class Application_Model_UsersMapper
     {
         return $this->getDbTable()->fetchAll();
     }
+
+    /**
+     * @return array
+     */
+    public function getUsersSelector()
+    {
+        $usersList = $this->fetchAll();
+        $usersSelector[''] = "Please choose";
+
+        foreach ($usersList as $value) {
+            $usersSelector[$value->id] = $value->username;
+        }
+
+        return $usersSelector;
+    }
 }
