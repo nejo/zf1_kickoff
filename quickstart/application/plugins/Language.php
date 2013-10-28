@@ -12,6 +12,7 @@ class Application_Plugin_Language
         if ($translate->isAvailable($lang)) {
             $translate->setLocale($lang);
         } else {
+            //$locale = new Zend_Locale(Zend_Locale::BROWSER);
             $translate->setLocale('en');
         }
 

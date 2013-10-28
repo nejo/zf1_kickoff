@@ -22,7 +22,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             null,
             array(
                 'disableNotices' => true,
-                'scan'           => Zend_Translate::LOCALE_DIRECTORY
+                'scan'           => Zend_Translate::LOCALE_DIRECTORY,
+                'locale'         => 'auto',
             )
         );
 
