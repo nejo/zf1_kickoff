@@ -38,6 +38,26 @@ class Application_Form_Auth_Register extends Zend_Form
         );
 
         $this->addElement(
+            'text',
+            'role',
+            array(
+                 'label'    => 'Role:',
+                 'required' => true,
+                 'filters'  => array('StringTrim'),
+            )
+        );
+
+        $this->addElement(
+            'text',
+            'name',
+            array(
+                 'label'    => 'Name:',
+                 'required' => true,
+                 'filters'  => array('StringTrim'),
+            )
+        );
+
+        $this->addElement(
             'submit',
             'submit',
             array(
