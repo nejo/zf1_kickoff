@@ -14,7 +14,7 @@ class GuestbookController extends Base_Controller_BaseController
         $request = $this->getRequest();
         $form    = new Application_Form_Guestbook();
 
-        $usersMapper = new Application_Model_UsersMapper();
+        $usersMapper = new Application_Model_Mapper_Users();
         $usersSelector = $usersMapper->getUsersSelector();
         $form->getElement('userId')->setMultiOptions($usersSelector);
 
