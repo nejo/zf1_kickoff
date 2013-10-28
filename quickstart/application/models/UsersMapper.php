@@ -30,6 +30,7 @@ class Application_Model_UsersMapper
     {
         $data = array(
             'username'   => $user->getUsername(),
+            'password' => $user->getPassword(),
             'created' => date('Y-m-d H:i:s'),
         );
 

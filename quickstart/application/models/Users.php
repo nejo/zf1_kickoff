@@ -12,6 +12,11 @@ class Application_Model_Users
      */
     protected $_username;
 
+    /**
+     * @var string
+     */
+    protected $_password;
+
     public function __construct(array $options = null)
     {
         if (is_array($options)) {
@@ -23,7 +28,7 @@ class Application_Model_Users
     {
         $method = 'set' . $name;
         if (('mapper' == $name) || !method_exists($this, $method)) {
-            throw new Exception('Invalid guestbook property');
+            throw new Exception('Invalid property');
         }
         $this->$method($value);
     }
@@ -32,7 +37,7 @@ class Application_Model_Users
     {
         $method = 'get' . $name;
         if (('mapper' == $name) || !method_exists($this, $method)) {
-            throw new Exception('Invalid guestbook property');
+            throw new Exception('Invalid property');
         }
         return $this->$method();
     }
@@ -52,12 +57,25 @@ class Application_Model_Users
     public function setUsername($ts)
     {
         $this->_username = $ts;
+
         return $this;
     }
 
     public function getUsername()
     {
         return $this->_username;
+    }
+
+    public function setPassword($password)
+    {
+        $this->_password = $password;
+
+        return $this;
+    }
+
+    public function getPassword()
+    {
+        return $this->_password;
     }
 
     public function setCreated($ts)

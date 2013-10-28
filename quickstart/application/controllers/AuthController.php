@@ -99,6 +99,18 @@ class AuthController extends Base_Controller_BaseController
         $this->view->form = $form;
     }
 
+    /**
+     * @param array $data
+     *
+     * @return bool
+     */
+    protected function _register($data)
+    {
+        $user = new Application_Model_Users($data);
+        $mapper  = new Application_Model_UsersMapper();
+        return $mapper->save($user);
+    }
+
 
 }
 
