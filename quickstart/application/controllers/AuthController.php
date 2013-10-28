@@ -1,6 +1,6 @@
 <?php
 
-class AuthController extends Zend_Controller_Action
+class AuthController extends Base_Controller_BaseController
 {
 
     public function loginAction()
