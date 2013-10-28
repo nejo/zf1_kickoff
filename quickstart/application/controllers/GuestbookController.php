@@ -1,12 +1,7 @@
 <?php
 
-class GuestbookController extends Zend_Controller_Action
+class GuestbookController extends Base_Controller_BaseController
 {
-
-    public function init()
-    {
-        /* Initialize action controller here */
-    }
 
     public function indexAction()
     {
