@@ -74,7 +74,7 @@ class AuthController extends Base_Controller_BaseController
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();
-        $this->_helper->redirector('index');
+        $this->_helper->redirector('index', 'index');
     }
 
 
