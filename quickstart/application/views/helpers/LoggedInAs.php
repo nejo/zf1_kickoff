@@ -2,6 +2,9 @@
 
 class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
 {
+    /**
+     * @return array
+     */
     public function loggedInAs()
     {
         $result = '';
@@ -18,13 +21,13 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
                 true
             );
 
-            $result = '<li>Welcome ' . $username . '.</li>
-            <li><a href="' . $logoutUrl . '">Logout</a></li>';
+            $result[] = 'Welcome ' . $username . '.';
+            $result[] = '<a href="' . $logoutUrl . '">Logout</a>';
         } else {
             $loginUrl = $this->view->url(
                 array('controller' => 'auth', 'action' => 'login')
             );
-            $result = '<li><a href="' . $loginUrl . '">' . $this->view->translate('Login') . '</a></li>';
+            $result[] = '<a href="' . $loginUrl . '">' . $this->view->translate('Login') . '</a>';
         }
 
         return $result;
