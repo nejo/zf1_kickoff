@@ -77,6 +77,28 @@ class AuthController extends Base_Controller_BaseController
         $this->_helper->redirector('index', 'index');
     }
 
+    public function registerAction()
+    {
+        $form = new Application_Form_Auth_Register();
+
+        $form->setAction($this->view->url());
+
+        $request = $this->getRequest();
+
+        if ($request->isPost()) {
+
+            if ($form->isValid($request->getPost())) {
+
+                if ($this->_register($form->getValues())) {
+                    $this->_helper->FlashMessenger('Successful Registration');
+                    $this->_helper->redirector('index', 'index');
+                }
+            }
+        }
+
+        $this->view->form = $form;
+    }
+
 
 }
 
