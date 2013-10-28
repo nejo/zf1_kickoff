@@ -27,7 +27,13 @@ class Zend_View_Helper_LoggedInAs extends Zend_View_Helper_Abstract
             $loginUrl = $this->view->url(
                 array('controller' => 'auth', 'action' => 'login')
             );
-            $result[] = '<a href="' . $loginUrl . '">' . $this->view->translate('Login') . '</a>';
+            $result[] = '<a href="' . $loginUrl . '">' . $this->view->translate('Log In') . '</a>';
+
+            $registerUrl = $this->view->url(
+                array('controller' => 'auth', 'action' => 'register')
+            );
+            $result[] =
+                '<a href="' . $registerUrl . '">' . $this->view->translate('Sign in') . '</a>';
         }
 
         return $result;
