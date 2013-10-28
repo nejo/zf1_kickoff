@@ -9,26 +9,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $router = $this->getResource('FrontController')->getRouter();
 
-        $langRoute = new Zend_Controller_Router_Route(
-            ':lang/',
-            array(
-                 'lang' => 'en',
-            )
+        $myRoutes = new Zend_Config_Ini(
+            APPLICATION_PATH . DIRECTORY_SEPARATOR . 'configs' . DIRECTORY_SEPARATOR . 'routes.ini',
+            APPLICATION_ENV
         );
 
-        $defaultRoute = new Zend_Controller_Router_Route(
-            ':controller/:action',
-            array(
-                 'module'     => 'default',
-                 'controller' => 'index',
-                 'action'     => 'index'
-            )
-        );
-
-        $defaultRoute = $langRoute->chain($defaultRoute);
-
-        $router->addRoute('lang', $langRoute);
-        $router->addRoute('default', $defaultRoute);
+        $router->addConfig($myRoutes, 'routes');
     }
 
 	protected function _initDoctype()
