@@ -5,7 +5,7 @@ class GuestbookController extends Base_Controller_BaseController
 
     public function indexAction()
     {
-        $guestbook = new Application_Model_GuestbookMapper();
+        $guestbook = new Application_Model_Mapper_Guestbook();
         $this->view->entries = $guestbook->fetchAll();
     }
 

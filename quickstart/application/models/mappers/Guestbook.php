@@ -1,6 +1,6 @@
 <?php
 
-class Application_Model_GuestbookMapper
+class Application_Model_Mapper_Guestbook
 {
     protected $_dbTable;
 
