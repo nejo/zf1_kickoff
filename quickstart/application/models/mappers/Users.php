@@ -1,6 +1,6 @@
 <?php
 
-class Application_Model_Mapper_Users
+class Application_Model_Mapper_Users extends Application_Model_Mapper_Base
 {
     protected $_dbTable;
 
