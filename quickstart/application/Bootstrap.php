@@ -26,10 +26,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             )
         );
 
-        $translate->setLocale('es_ES');
-
         $registry = Zend_Registry::getInstance();
         $registry->set('Zend_Translate', $translate);
+
+        $translate->setLocale('en');
     }
 
     public function _initRoutes()
