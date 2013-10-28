@@ -13,6 +13,7 @@ class Application_Model_Mapper_Guestbook
             throw new Exception('Invalid table data gateway provided');
         }
         $this->_dbTable = $dbTable;
+
         return $this;
     }
 
@@ -21,6 +22,7 @@ class Application_Model_Mapper_Guestbook
         if (null === $this->_dbTable) {
             $this->setDbTable('Application_Model_DbTable_Guestbook');
         }
+
         return $this->_dbTable;
     }
 
