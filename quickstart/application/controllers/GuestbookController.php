@@ -18,7 +18,11 @@ class GuestbookController extends Zend_Controller_Action
     {
         $request = $this->getRequest();
         $form    = new Application_Form_Guestbook();
- 
+
+        $usersMapper = new Application_Model_UsersMapper();
+        $usersSelector = $usersMapper->getUsersSelector();
+        $form->getElement('userId')->setMultiOptions($usersSelector);
+
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($request->getPost())) {
                 $comment = new Application_Model_Guestbook($form->getValues());
@@ -30,7 +34,6 @@ class GuestbookController extends Zend_Controller_Action
  
         $this->view->form = $form;
     }
-
 
 }
 

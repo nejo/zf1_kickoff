@@ -1,26 +1,16 @@
 <?php
 
-class Application_Model_Guestbook
+class Application_Model_Users
 {
-	/**
-	* @var string
-	*/
-    protected $_comment;
-
-	/**
-	* @var DateTime
-	*/
-    protected $_created;
-
-	/**
-	* @var int
-	*/
-    protected $_userId;
-
-	/**
-	* @var int
-	*/
+    /**
+     * @var int
+     */
     protected $_id;
+
+    /**
+     * @var string
+     */
+    protected $_username;
 
     public function __construct(array $options = null)
     {
@@ -59,26 +49,15 @@ class Application_Model_Guestbook
         return $this;
     }
 
-    public function setComment($text)
+    public function setUsername($ts)
     {
-        $this->_comment = (string) $text;
+        $this->_username = $ts;
         return $this;
     }
 
-    public function getComment()
+    public function getUsername()
     {
-        return $this->_comment;
-    }
-
-    public function setUserId($userId)
-    {
-        $this->_userId = (string) $userId;
-        return $this;
-    }
-
-    public function getUserId()
-    {
-        return $this->_userId;
+        return $this->_username;
     }
 
     public function setCreated($ts)

@@ -1,6 +1,6 @@
 <?php
 
-class Application_Model_GuestbookMapper
+class Application_Model_UsersMapper
 {
     protected $_dbTable;
 
@@ -13,26 +13,27 @@ class Application_Model_GuestbookMapper
             throw new Exception('Invalid table data gateway provided');
         }
         $this->_dbTable = $dbTable;
+
         return $this;
     }
 
     public function getDbTable()
     {
         if (null === $this->_dbTable) {
-            $this->setDbTable('Application_Model_DbTable_Guestbook');
+            $this->setDbTable('Application_Model_DbTable_Users');
         }
+
         return $this->_dbTable;
     }
 
-    public function save(Application_Model_Guestbook $guestbook)
+    public function save(Application_Model_Users $user)
     {
         $data = array(
-            'user_id'   => $guestbook->getUserId(),
-            'comment' => $guestbook->getComment(),
+            'username'   => $user->getUsername(),
             'created' => date('Y-m-d H:i:s'),
         );
 
-        if (null === ($id = $guestbook->getId())) {
+        if (null === ($id = $user->getId())) {
             unset($data['id']);
             $this->getDbTable()->insert($data);
         } else {
@@ -40,21 +41,35 @@ class Application_Model_GuestbookMapper
         }
     }
 
-    public function find($id, Application_Model_Guestbook $guestbook)
+    public function find($id, Application_Model_Users $user)
     {
         $result = $this->getDbTable()->find($id);
         if (0 == count($result)) {
             return;
         }
         $row = $result->current();
-        $guestbook->setId($row->id)
-                  ->setUserId($row->getUser()->id)
-                  ->setComment($row->comment)
-                  ->setCreated($row->created);
+        $user->setId($row->id)
+        ->setUsername($row->username)
+        ->setCreated($row->created);
     }
 
     public function fetchAll()
     {
         return $this->getDbTable()->fetchAll();
+    }
+
+    /**
+     * @return array
+     */
+    public function getUsersSelector()
+    {
+        $usersList = $this->fetchAll();
+        $usersSelector[0] = "Please choose";
+
+        foreach ($usersList as $value) {
+            $usersSelector[$value->id] = $value->username;
+        }
+
+        return $usersSelector;
     }
 }

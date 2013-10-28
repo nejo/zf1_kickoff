@@ -12,7 +12,8 @@
 
 <dl>
     <?php foreach ($this->entries as $entry): ?>
-    <dt><?php echo $this->escape($entry->email) ?></dt>
+
+    <dt><?php echo $this->escape($entry->getUser()->username) ?> @ <?php echo date($entry->created); ?></dt>
     <dd><?php echo $this->escape($entry->comment) ?></dd>
     <?php endforeach ?>
 </dl>
