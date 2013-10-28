@@ -32,6 +32,34 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $registry->set('Zend_Translate', $translate);
     }
 
+    public function _initRoutes()
+    {
+        $this->bootstrap('FrontController');
+
+        $router = $this->getResource('FrontController')->getRouter();
+
+        $langRoute = new Zend_Controller_Router_Route(
+            ':lang/',
+            array(
+                 'lang' => 'en',
+            )
+        );
+
+        $defaultRoute = new Zend_Controller_Router_Route(
+            ':controller/:action',
+            array(
+                 'module'     => 'default',
+                 'controller' => 'index',
+                 'action'     => 'index'
+            )
+        );
+
+        $defaultRoute = $langRoute->chain($defaultRoute);
+
+        $router->addRoute('langRoute', $langRoute);
+        $router->addRoute('defaultRoute', $defaultRoute);
+    }
+
 	protected function _initDoctype()
 	{
 		$this->bootstrap('view');
