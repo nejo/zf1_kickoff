@@ -57,8 +57,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $defaultRoute = $langRoute->chain($defaultRoute);
 
-        $router->addRoute('langRoute', $langRoute);
-        $router->addRoute('defaultRoute', $defaultRoute);
+        $router->addRoute('lang', $langRoute);
+        $router->addRoute('default', $defaultRoute);
     }
 
 	protected function _initDoctype()
