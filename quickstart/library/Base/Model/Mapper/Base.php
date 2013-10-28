@@ -26,6 +26,11 @@ class Base_Model_Mapper_Base
         return $this->_dbTable;
     }
 
+    public function fetchAll()
+    {
+        return $this->getDbTable()->fetchAll();
+    }
+
     /**
      * @return string
      */

@@ -36,11 +36,6 @@ class Application_Model_Mapper_Users extends Application_Model_Mapper_Base
         ->setCreated($row->created);
     }
 
-    public function fetchAll()
-    {
-        return $this->getDbTable()->fetchAll();
-    }
-
     /**
      * @return array
      */

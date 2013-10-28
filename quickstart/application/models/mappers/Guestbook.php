@@ -31,9 +31,4 @@ class Application_Model_Mapper_Guestbook extends Application_Model_Mapper_Base
                   ->setComment($row->comment)
                   ->setCreated($row->created);
     }
-
-    public function fetchAll()
-    {
-        return $this->getDbTable()->fetchAll();
-    }
 }
