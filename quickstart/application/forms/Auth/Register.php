@@ -31,6 +31,9 @@ class Application_Form_Auth_Register extends Zend_Form
             array(
                  'label'    => 'Confirm Password:',
                  'required' => true,
+                 'validators' => array(
+                     array('identical', false, array('token' => 'password'))
+                 )
             )
         );
 
@@ -39,7 +42,7 @@ class Application_Form_Auth_Register extends Zend_Form
             'submit',
             array(
                  'ignore' => true,
-                 'label'  => 'Login',
+                 'label'  => 'Sign In',
             )
         );
 
