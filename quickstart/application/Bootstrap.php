@@ -22,14 +22,41 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             null,
             array(
                 'disableNotices' => true,
-                'scan'           => Zend_Translate::LOCALE_DIRECTORY
+                'scan'           => Zend_Translate::LOCALE_DIRECTORY,
+                'locale'         => 'auto',
             )
         );
 
-        $translate->setLocale('es_ES');
-
         $registry = Zend_Registry::getInstance();
         $registry->set('Zend_Translate', $translate);
+    }
+
+    public function _initRoutes()
+    {
+        $this->bootstrap('FrontController');
+
+        $router = $this->getResource('FrontController')->getRouter();
+
+        $langRoute = new Zend_Controller_Router_Route(
+            ':lang/',
+            array(
+                 'lang' => 'en',
+            )
+        );
+
+        $defaultRoute = new Zend_Controller_Router_Route(
+            ':controller/:action',
+            array(
+                 'module'     => 'default',
+                 'controller' => 'index',
+                 'action'     => 'index'
+            )
+        );
+
+        $defaultRoute = $langRoute->chain($defaultRoute);
+
+        $router->addRoute('lang', $langRoute);
+        $router->addRoute('default', $defaultRoute);
     }
 
 	protected function _initDoctype()

@@ -7,15 +7,17 @@ bootstrap.class = "Bootstrap"
 appnamespace = "Application"
 resources.frontController.controllerDirectory = APPLICATION_PATH "/controllers"
 resources.frontController.params.displayExceptions = 0
-resources.db.params.charset = "utf8"
+;resources.frontController.plugins[] = "Class_Name"
 resources.layout.layoutPath = APPLICATION_PATH "/layouts/scripts/"
 resources.view[] = 
 resources.view.encoding = "UTF-8"
 resources.db.adapter = "PDO_MYSQL"
+resources.db.params.charset = "utf8"        ; This will automatically call: database.params.driver_options.PDO::MYSQL_ATTR_INIT_COMMAND = "SET NAMES utf8"
 resources.db.params.host = "localhost"
 resources.db.params.username = "root"
 resources.db.params.password = ""
-resources.db.params.dbname = "zf1_kickoff" 
+resources.db.params.dbname = "zf1_kickoff"
+
 
 [staging : production]
 
