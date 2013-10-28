@@ -3,6 +3,9 @@
 class AuthController extends Base_Controller_BaseController
 {
 
+    /**
+     * Login action
+     */
     public function loginAction()
     {
         $form = new Application_Form_Auth_Login();
@@ -29,7 +32,6 @@ class AuthController extends Base_Controller_BaseController
      * @param array $values
      *
      * @return bool
-     *
      */
     protected function _verifyLogin($values)
     {
@@ -52,7 +54,6 @@ class AuthController extends Base_Controller_BaseController
 
     /**
      * @return Zend_Auth_Adapter_DbTable
-     *
      */
     protected function _getAuthAdapter()
     {
@@ -67,6 +68,9 @@ class AuthController extends Base_Controller_BaseController
         return $authAdapter;
     }
 
+    /**
+     * Logout
+     */
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();
