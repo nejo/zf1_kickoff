@@ -10,7 +10,7 @@ class Application_Plugin_Language
      */
     public function routeShutdown(Zend_Controller_Request_Abstract $request)
     {
-        $lang = $request->getParam('lang', null);
+        $lang = $request->getParam('lang', Zend_Locale::BROWSER);
 
         $translate = Zend_Registry::get('Zend_Translate');
 
