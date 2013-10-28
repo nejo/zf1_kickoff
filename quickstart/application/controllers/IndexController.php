@@ -1,12 +1,7 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class IndexController extends Base_Controller_BaseController
 {
-
-    public function init()
-    {
-        /* Initialize action controller here */
-    }
 
     public function indexAction()
     {

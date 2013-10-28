@@ -7,6 +7,7 @@ includePaths.library = APPLICATION_PATH "/../library"
 bootstrap.path = APPLICATION_PATH "/Bootstrap.php"
 bootstrap.class = "Bootstrap"
 appnamespace = "Application"
+autoloaderNamespaces[] = "Base_"
 
 ; FRONTCONTROLLER
 resources.frontController.controllerDirectory = APPLICATION_PATH "/controllers"
