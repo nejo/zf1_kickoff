@@ -9,26 +9,21 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $router = $this->getResource('FrontController')->getRouter();
 
-        $langRoute = new Zend_Controller_Router_Route(
-            ':lang/',
-            array(
-                 'lang' => 'en',
-            )
-        );
+        $cacheManager = $this->bootstrap('cachemanager')->getResource('cachemanager');
+        $cache = $cacheManager->getCache('cache');
+        $cacheId = 'routes';
 
-        $defaultRoute = new Zend_Controller_Router_Route(
-            ':controller/:action',
-            array(
-                 'module'     => 'default',
-                 'controller' => 'index',
-                 'action'     => 'index'
-            )
-        );
+        $myRoutes = $cache->load($cacheId);
 
-        $defaultRoute = $langRoute->chain($defaultRoute);
+        if (!$myRoutes) {
+            $myRoutes = new Zend_Config_Ini(
+                APPLICATION_PATH . DIRECTORY_SEPARATOR . 'configs' . DIRECTORY_SEPARATOR . 'routes.ini',
+                APPLICATION_ENV
+            );
+            $cache->save($myRoutes, $cacheId);
+        }
 
-        $router->addRoute('lang', $langRoute);
-        $router->addRoute('default', $defaultRoute);
+        $router->addConfig($myRoutes, 'routes');
     }
 
 	protected function _initDoctype()
