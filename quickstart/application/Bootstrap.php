@@ -14,6 +14,24 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
          */
     }
 
+    protected function _initTranslate()
+    {
+        $translate = new Zend_Translate(
+            'gettext',
+            APPLICATION_PATH . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'languages',
+            null,
+            array(
+                'disableNotices' => true,
+                'scan'           => Zend_Translate::LOCALE_DIRECTORY
+            )
+        );
+
+        $translate->setLocale('es_ES');
+
+        $registry = Zend_Registry::getInstance();
+        $registry->set('Zend_Translate', $translate);
+    }
+
 	protected function _initDoctype()
 	{
 		$this->bootstrap('view');
