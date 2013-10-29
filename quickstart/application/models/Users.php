@@ -20,6 +20,11 @@ class Application_Model_Users
     /**
      * @var string
      */
+    protected $_salt;
+
+    /**
+     * @var string
+     */
     protected $_role;
 
     /**
@@ -103,6 +108,18 @@ class Application_Model_Users
     public function setCreated($ts)
     {
         $this->_created = $ts;
+
+        return $this;
+    }
+
+    public function getSalt()
+    {
+        return $this->_salt;
+    }
+
+    public function setSalt($salt)
+    {
+        $this->_salt = $salt;
 
         return $this;
     }
