@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Auth_Register extends Zend_Form
+class Application_Form_Auth_Register extends Twitter_Bootstrap_Form_Horizontal
 {
     public function init()
     {
