@@ -39,6 +39,7 @@ class Base_Controller_BaseController extends Zend_Controller_Action
 
     protected function _initJavascripts()
     {
+        $this->view->headScript()->appendFile('/js/jquery-2.0.3.min.js');
         $this->view->headScript()->appendFile('/js/bootstrap.min.js');
     }
 
