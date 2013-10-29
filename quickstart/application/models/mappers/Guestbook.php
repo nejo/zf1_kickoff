@@ -27,7 +27,7 @@ class Application_Model_Mapper_Guestbook extends Application_Model_Mapper_Base
         }
         $row = $result->current();
         $guestbook->setId($row->id)
-                  ->setUserId($row->getUser()->id)
+                  ->setUser($row->getUser())
                   ->setComment($row->comment)
                   ->setCreated($row->created);
     }
@@ -39,7 +39,7 @@ class Application_Model_Mapper_Guestbook extends Application_Model_Mapper_Base
         foreach ($resultSet as $row) {
             $entry = new Application_Model_Guestbook();
             $entry->setId($row->id)
-                ->setUserId($row->getUser()->id)
+                ->setUser($row->getUser())
                 ->setComment($row->comment)
                 ->setCreated($row->created);
             $entries[] = $entry;

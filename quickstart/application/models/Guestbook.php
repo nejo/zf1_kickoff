@@ -13,9 +13,9 @@ class Application_Model_Guestbook
     protected $_created;
 
 	/**
-	* @var int
+	* @var Application_Model_Users
 	*/
-    protected $_userId;
+    protected $_user;
 
 	/**
 	* @var int
@@ -70,20 +70,20 @@ class Application_Model_Guestbook
         return $this->_comment;
     }
 
-    public function setUserId($userId)
+    public function setUser($user)
     {
-        $this->_userId = (string) $userId;
+        $this->_user = $user;
         return $this;
     }
 
-    public function getUserId()
+    public function getUser()
     {
-        return $this->_userId;
+        return $this->_user;
     }
 
-    public function setCreated($ts)
+    public function setCreated($dateTime)
     {
-        $this->_created = $ts;
+        $this->_created = $dateTime;
         return $this;
     }
 
