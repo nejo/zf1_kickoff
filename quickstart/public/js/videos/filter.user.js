@@ -9,7 +9,7 @@ $(function() {
                 $(this).data('url').toString(),
                 { 'userId': $(this).find('select').val() },
                 function(data) {
-                    alert(data);
+                    $('#videos_list').fadeOut('fast').html(data).fadeIn('fast');
                 },
                 'html'
             );
