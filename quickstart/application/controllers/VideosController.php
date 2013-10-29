@@ -49,12 +49,12 @@ class VideosController extends Base_Controller_BaseController
      */
     protected function _getFilterConditions()
     {
-        $where = array('user_id' => null);
+        $where = array();
 
         $userId = $this->getRequest()->getParam('userId', null);
 
         if (is_numeric($userId)) {
-            $where['user_id'] = $userId;
+            $where['user_id = ?'] = $userId;
         }
 
         return $where;
