@@ -13,7 +13,7 @@
 <dl>
     <?php foreach ($this->entries as $entry): ?>
 
-    <dt><?php echo $this->escape($entry->getUser()->username) ?> @ <?php echo date($entry->created); ?></dt>
-    <dd><?php echo $this->escape($entry->comment) ?></dd>
+    <dt><?php echo $this->escape($entry->getUser()->getUsername()) ?> @ <?php echo date($entry->getCreated()); ?></dt>
+    <dd><?php echo $this->escape($entry->getComment()) ?></dd>
     <?php endforeach ?>
 </dl>
