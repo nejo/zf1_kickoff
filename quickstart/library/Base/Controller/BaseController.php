@@ -5,6 +5,7 @@ class Base_Controller_BaseController extends Zend_Controller_Action
 
     public function init()
     {
+        $this->_initXmlHttpRequest();
         $this->_initHelpers();
 
         $this->_initDoctype();
@@ -14,6 +15,16 @@ class Base_Controller_BaseController extends Zend_Controller_Action
         $this->_initJavascripts();
 
         $this->view->messages = $this->_helper->flashMessenger->getMessages();
+    }
+
+    protected function _initXmlHttpRequest()
+    {
+        if ($this->getRequest()->isXmlHttpRequest()) {
+            //$this->_helper->layout->disableLayout();
+            //$this->_helper->viewRenderer->setNoRender(true);
+
+            $this->_helper->layout->setLayout('raw');
+        }
     }
 
     protected function _initHelpers()
