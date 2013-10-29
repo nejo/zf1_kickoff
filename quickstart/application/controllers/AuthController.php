@@ -109,7 +109,7 @@ class AuthController extends Base_Controller_BaseController
         $data = $this->_generatePasswordAndSalt($data);
 
         $user = new Application_Model_Users($data);
-        $mapper  = new Application_Model_UsersMapper();
+        $mapper  = new Application_Model_Mapper_Users();
         return $mapper->save($user);
     }
 
