@@ -17,3 +17,26 @@ CREATE TABLE IF NOT EXISTS users (
     name        VARCHAR(100) NULL,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE IF NOT EXISTS channels (
+    id          INT NOT NULL AUTO_INCREMENT,
+    name        VARCHAR(150),
+    user_id     INT NOT NULL,
+    PRIMARY KEY (id),
+    INDEX `user_index` USING BTREE (user_id)
+);
+
+CREATE TABLE IF NOT EXISTS videos (
+    id              INT NOT NULL AUTO_INCREMENT,
+    title           VARCHAR(150),
+    youtube_key     VARCHAR(100),
+    user_id         INT NOT NULL,
+    PRIMARY KEY (id),
+    INDEX `user_index` USING BTREE (user_id)
+);
+
+CREATE TABLE IF NOT EXISTS channels_videos (
+    channel_id      INT NOT NULL,
+    video_id        INT NOT NULL,
+    PRIMARY KEY (channel_id, video_id)
+);
