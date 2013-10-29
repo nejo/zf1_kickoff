@@ -106,9 +106,24 @@ class AuthController extends Base_Controller_BaseController
      */
     protected function _register($data)
     {
+        $data = $this->_generatePasswordAndSalt($data);
+
         $user = new Application_Model_Users($data);
         $mapper  = new Application_Model_UsersMapper();
         return $mapper->save($user);
+    }
+
+    /**
+     * @param array $data
+     */
+    protected function _generatePasswordAndSalt($data)
+    {
+        $salt = substr(SHA1(mt_rand()), 0, 40);
+
+        $data['password'] = hash('sha1', $data['password'] . $salt);
+        $data['salt'] = $salt;
+
+        return $data;
     }
 
 
