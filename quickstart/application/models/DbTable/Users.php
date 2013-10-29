@@ -7,6 +7,9 @@ class Application_Model_DbTable_Users extends Zend_Db_Table_Abstract
 
     protected $_rowClass = 'Application_Model_Row_User';
 
-    protected $_dependentTables = array('Model_DbTable_Guestbook');
+    protected $_dependentTables = array(
+        'Model_DbTable_Guestbook',
+        'Model_DbTable_Videos'
+    );
 
 }

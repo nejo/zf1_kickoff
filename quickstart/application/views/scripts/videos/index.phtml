@@ -1,0 +1,12 @@
+<?php echo $this->filterForm ?>
+
+<?php foreach ($this->videos as $video) : ?>
+<div class="media">
+    <a class="pull-left" href="<?php echo $this->url(array('id' => $video->getId()), 'videos_view') ?>">
+        <img class="media-object" src="http://i1.ytimg.com/vi/<?php echo $this->escape($video->getYoutubeKey()) ?>/default.jpg">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading"><?php echo $this->escape($video->getTitle()) ?></h4>
+    </div>
+</div>
+<?php endforeach ?>
