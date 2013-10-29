@@ -5,6 +5,8 @@ class Base_Controller_BaseController extends Zend_Controller_Action
 
     public function init()
     {
+        $this->_initHelpers();
+
         $this->_initDoctype();
         $this->_initHeadtitle();
         $this->_initMeta();
@@ -12,6 +14,13 @@ class Base_Controller_BaseController extends Zend_Controller_Action
         $this->_initJavascripts();
 
         $this->view->messages = $this->_helper->flashMessenger->getMessages();
+    }
+
+    protected function _initHelpers()
+    {
+        // Tell partial to pass objects as 'model' variable
+        $this->view->partial()->setObjectKey('model');
+        $this->view->partialLoop()->setObjectKey('model');
     }
 
     protected function _initDoctype()
