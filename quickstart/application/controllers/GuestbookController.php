@@ -1,6 +1,6 @@
 <?php
 
-class GuestbookController extends Base_Controller_BaseController
+class GuestbookController extends Core_Controller_BaseController
 {
 
     public function indexAction()

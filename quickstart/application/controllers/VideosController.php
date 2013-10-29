@@ -1,6 +1,6 @@
 <?php
 
-class VideosController extends Base_Controller_BaseController
+class VideosController extends Core_Controller_BaseController
 {
 
     public function indexAction()

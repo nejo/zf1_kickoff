@@ -1,6 +1,6 @@
 <?php
 
-class IndexController extends Base_Controller_BaseController
+class IndexController extends Core_Controller_BaseController
 {
 
     public function indexAction()
