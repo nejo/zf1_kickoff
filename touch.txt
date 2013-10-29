@@ -1,1 +1,0 @@
-http://getcomposer.org/doc/articles/scripts.md
