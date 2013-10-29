@@ -30,6 +30,11 @@ class Application_Model_Users
     /**
      * @var string
      */
+    protected $_created;
+
+    /**
+     * @var string
+     */
     protected $_name;
 
     public function __construct(array $options = null)
@@ -81,9 +86,9 @@ class Application_Model_Users
         return $this->_id;
     }
 
-    public function setUsername($ts)
+    public function setUsername($username)
     {
-        $this->_username = $ts;
+        $this->_username = $username;
 
         return $this;
     }
@@ -105,13 +110,6 @@ class Application_Model_Users
         return $this->_password;
     }
 
-    public function setCreated($ts)
-    {
-        $this->_created = $ts;
-
-        return $this;
-    }
-
     public function getSalt()
     {
         return $this->_salt;
@@ -124,11 +122,6 @@ class Application_Model_Users
         return $this;
     }
 
-    public function getCreated()
-    {
-        return $this->_created;
-    }
-
     public function setRole($role)
     {
         $this->_role = $role;
@@ -139,6 +132,18 @@ class Application_Model_Users
     public function getRole()
     {
         return $this->_role;
+    }
+
+    public function setCreated($dateTime)
+    {
+        $this->_created = $dateTime;
+
+        return $this;
+    }
+
+    public function getCreated()
+    {
+        return $this->_created;
     }
 
     public function setName($name)
