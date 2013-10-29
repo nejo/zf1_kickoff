@@ -12,6 +12,26 @@ class Application_Model_Users
      */
     protected $_username;
 
+    /**
+     * @var string
+     */
+    protected $_password;
+
+    /**
+     * @var string
+     */
+    protected $_salt;
+
+    /**
+     * @var string
+     */
+    protected $_role;
+
+    /**
+     * @var string
+     */
+    protected $_name;
+
     public function __construct(array $options = null)
     {
         if (is_array($options)) {
@@ -23,7 +43,7 @@ class Application_Model_Users
     {
         $method = 'set' . $name;
         if (('mapper' == $name) || !method_exists($this, $method)) {
-            throw new Exception('Invalid guestbook property');
+            throw new Exception('Invalid property');
         }
         $this->$method($value);
     }
@@ -32,7 +52,7 @@ class Application_Model_Users
     {
         $method = 'get' . $name;
         if (('mapper' == $name) || !method_exists($this, $method)) {
-            throw new Exception('Invalid guestbook property');
+            throw new Exception('Invalid property');
         }
         return $this->$method();
     }
@@ -49,9 +69,22 @@ class Application_Model_Users
         return $this;
     }
 
+    public function setId($id)
+    {
+        $this->_id = (int) $id;
+
+        return $this;
+    }
+
+    public function getId()
+    {
+        return $this->_id;
+    }
+
     public function setUsername($ts)
     {
         $this->_username = $ts;
+
         return $this;
     }
 
@@ -60,9 +93,34 @@ class Application_Model_Users
         return $this->_username;
     }
 
+    public function setPassword($password)
+    {
+        $this->_password = $password;
+
+        return $this;
+    }
+
+    public function getPassword()
+    {
+        return $this->_password;
+    }
+
     public function setCreated($ts)
     {
         $this->_created = $ts;
+
+        return $this;
+    }
+
+    public function getSalt()
+    {
+        return $this->_salt;
+    }
+
+    public function setSalt($salt)
+    {
+        $this->_salt = $salt;
+
         return $this;
     }
 
@@ -71,14 +129,27 @@ class Application_Model_Users
         return $this->_created;
     }
 
-    public function setId($id)
+    public function setRole($role)
     {
-        $this->_id = (int) $id;
+        $this->_role = $role;
+
         return $this;
     }
 
-    public function getId()
+    public function getRole()
     {
-        return $this->_id;
+        return $this->_role;
+    }
+
+    public function setName($name)
+    {
+        $this->_name = $name;
+
+        return $this;
+    }
+
+    public function getName()
+    {
+        return $this->_name;
     }
 }	

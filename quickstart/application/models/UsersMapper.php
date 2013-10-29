@@ -30,15 +30,21 @@ class Application_Model_UsersMapper
     {
         $data = array(
             'username'   => $user->getUsername(),
+            'password' => $user->getPassword(),
+            'salt' => $user->getSalt(),
             'created' => date('Y-m-d H:i:s'),
+            'role' => $user->getRole(),
+            'name' => $user->getName(),
         );
 
         if (null === ($id = $user->getId())) {
             unset($data['id']);
-            $this->getDbTable()->insert($data);
+            $result = $this->getDbTable()->insert($data);
         } else {
-            $this->getDbTable()->update($data, array('id = ?' => $id));
+            $result = $this->getDbTable()->update($data, array('id = ?' => $id));
         }
+
+        return (boolean) $result;
     }
 
     public function find($id, Application_Model_Users $user)

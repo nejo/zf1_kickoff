@@ -3,6 +3,9 @@
 class AuthController extends Base_Controller_BaseController
 {
 
+    /**
+     * Login action
+     */
     public function loginAction()
     {
         $form = new Application_Form_Auth_Login();
@@ -29,7 +32,6 @@ class AuthController extends Base_Controller_BaseController
      * @param array $values
      *
      * @return bool
-     *
      */
     protected function _verifyLogin($values)
     {
@@ -52,7 +54,6 @@ class AuthController extends Base_Controller_BaseController
 
     /**
      * @return Zend_Auth_Adapter_DbTable
-     *
      */
     protected function _getAuthAdapter()
     {
@@ -67,10 +68,62 @@ class AuthController extends Base_Controller_BaseController
         return $authAdapter;
     }
 
+    /**
+     * Logout
+     */
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();
-        $this->_helper->redirector('index');
+        $this->_helper->redirector('index', 'index');
+    }
+
+    public function registerAction()
+    {
+        $form = new Application_Form_Auth_Register();
+
+        $form->setAction($this->view->url());
+
+        $request = $this->getRequest();
+
+        if ($request->isPost()) {
+
+            if ($form->isValid($request->getPost())) {
+
+                if ($this->_register($form->getValues())) {
+                    $this->_helper->FlashMessenger('Successful Registration');
+                    $this->_helper->redirector('index', 'index');
+                }
+            }
+        }
+
+        $this->view->form = $form;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return bool
+     */
+    protected function _register($data)
+    {
+        $data = $this->_generatePasswordAndSalt($data);
+
+        $user = new Application_Model_Users($data);
+        $mapper  = new Application_Model_UsersMapper();
+        return $mapper->save($user);
+    }
+
+    /**
+     * @param array $data
+     */
+    protected function _generatePasswordAndSalt($data)
+    {
+        $salt = substr(SHA1(mt_rand()), 0, 40);
+
+        $data['password'] = hash('sha1', $data['password'] . $salt);
+        $data['salt'] = $salt;
+
+        return $data;
     }
 
 

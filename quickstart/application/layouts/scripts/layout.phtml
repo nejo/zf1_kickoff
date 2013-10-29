@@ -17,8 +17,17 @@
                         ) ?>"><?php echo $this->translate('Guestbook'); ?></a></li>
                 </ul>
                 <ul class="nav pull-right">
-                    <li><?php echo $this->loggedInAs(); ?></li>
+                    <?php foreach ($this->loggedInAs() as $item) { ?>
+                        <li><?php echo $item; ?></li>
+                    <?php } ?>
                 </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?php /*echo $this->FlashMessenger();*/ ?>
             </div>
         </div>
 
