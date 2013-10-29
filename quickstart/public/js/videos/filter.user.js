@@ -5,14 +5,18 @@ $(function() {
             event.preventDefault();
             event.stopPropagation();
 
-            $.ajax(
-                $(this).data('url').toString(),
-                { 'userId': $(this).find('select').val() },
-                function(data) {
-                    $('#videos_list').fadeOut('fast').html(data).fadeIn('fast');
+            $.ajax({
+                type: 'GET',
+                url: $(this).data('url').toString(),
+                data: { 'userId': $(this).find('select').val() },
+                beforeSend: function() {
+                    $('#videos_list').fadeOut('fast');
                 },
-                'html'
-            );
+                success: function(data) {
+                    $('#videos_list').html(data).fadeIn('fast');
+                },
+                dataType: 'html'
+            });
         }
     );
 });
