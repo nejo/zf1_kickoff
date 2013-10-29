@@ -17,6 +17,14 @@ class VideosController extends Base_Controller_BaseController
 
         $filterForm = new Application_Form_Filter_User();
 
+        $filterForm->setAttrib(
+            'data-url',
+            $this->view->url(
+                array('controller' => 'videos', 'action' => 'filter'),
+                'default'
+            )
+        );
+
         $usersMapper = new Application_Model_Mapper_Users();
         $usersSelector = $usersMapper->getUsersSelector();
         $filterForm->getElement('userId')->setMultiOptions($usersSelector);
