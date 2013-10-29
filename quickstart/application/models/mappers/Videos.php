@@ -24,15 +24,16 @@ class Application_Model_Mapper_Videos extends Application_Model_Mapper_Base
         return (boolean) $result;
     }
 
-    public function find($id, Application_Model_Videos $user)
+    public function find($id, Application_Model_Videos $video)
     {
         $result = $this->getDbTable()->find($id);
         if (0 == count($result)) {
             return;
         }
         $row = $result->current();
-        $user->setId($row->id)
-            ->setUsername($row->username)
-            ->setCreated($row->created);
+        $video->setId($row->id)
+            ->setTitle($row->title)
+            ->setYoutubeKey($row->youtube_key)
+            ->setUserId($row->user_id);
     }
 }

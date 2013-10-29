@@ -22,6 +22,19 @@ class VideosController extends Base_Controller_BaseController
         $this->view->filterForm = $filterForm;
     }
 
+    public function viewAction()
+    {
+        $videosMapper = new Application_Model_Mapper_Videos();
+        $video = new Application_Model_Videos();
+
+        $id = $this->getRequest()->getParam('id');
+        $videosMapper->find($id, $video);
+
+        $this->view->video = $video;
+    }
+
 
 }
+
+
 
