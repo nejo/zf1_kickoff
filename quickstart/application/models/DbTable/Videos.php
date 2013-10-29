@@ -5,11 +5,13 @@ class Application_Model_DbTable_Videos extends Zend_Db_Table_Abstract
 
     protected $_name = 'videos';
 
+    protected $_rowClass = 'Application_Model_Row_Video';
+
     protected $_referenceMap = array(
         'User' => array(
-            'columns'       => 'user_id',                           // the column in the 'videos' table which is used for the join
-            'refTableClass' => 'Application_Model_DbTable_Users',   // the users classname for users table
-            'refColumns'    => 'id'                                 // the primary key of the users table
+            'columns'       => 'user_id',
+            'refTableClass' => 'Application_Model_DbTable_Users',
+            'refColumns'    => 'id'
         )
     );
 }

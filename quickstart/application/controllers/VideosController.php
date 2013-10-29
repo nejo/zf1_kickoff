@@ -7,7 +7,8 @@ class VideosController extends Base_Controller_BaseController
     {
         $this->_setupUserFilter();
 
-
+        $videosMapper = new Application_Model_Mapper_Videos();
+        $this->view->videos = $videosMapper->fetchAll();
     }
 
     protected function _setupUserFilter()
