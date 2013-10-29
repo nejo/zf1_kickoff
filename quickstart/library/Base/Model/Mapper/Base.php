@@ -39,14 +39,6 @@ class Base_Model_Mapper_Base
     }
 
     /**
-     * @return Zend_Db_Table_Rowset_Abstract
-     */
-    public function fetchAll()
-    {
-        return $this->getDbTable()->fetchAll();
-    }
-
-    /**
      * @return string
      */
     protected function _getModelClassName()

@@ -36,4 +36,19 @@ class Application_Model_Mapper_Videos extends Application_Model_Mapper_Base
             ->setYoutubeKey($row->youtube_key)
             ->setUserId($row->user_id);
     }
+
+    public function fetchAll()
+    {
+        $resultSet = $this->getDbTable()->fetchAll();
+        $entries   = array();
+        foreach ($resultSet as $row) {
+            $entry = new Application_Model_Videos();
+            $entry->setId($row->id)
+                ->setTitle($row->title)
+                ->setYoutubeKey($row->youtube_key)
+                ->setUserId($row->user_id);
+            $entries[] = $entry;
+        }
+        return $entries;
+    }
 }
