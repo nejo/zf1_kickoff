@@ -37,9 +37,9 @@ class Application_Model_Mapper_Videos extends Application_Model_Mapper_Base
             ->setUserId($row->user_id);
     }
 
-    public function fetchAll()
+    public function fetchAll($where)
     {
-        $resultSet = $this->getDbTable()->fetchAll();
+        $resultSet = $this->getDbTable()->fetchAll($where);
         $entries   = array();
         foreach ($resultSet as $row) {
             $entry = new Application_Model_Videos();
