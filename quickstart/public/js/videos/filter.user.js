@@ -5,7 +5,7 @@ $(function() {
             event.preventDefault();
             event.stopPropagation();
 
-            $.get(
+            $.ajax(
                 $(this).data('url').toString(),
                 { 'userId': $(this).find('select').val() },
                 function(data) {
