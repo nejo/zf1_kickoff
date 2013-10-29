@@ -1,12 +1,14 @@
 REPLACE INTO guestbook
-    (user_id, comment, created)
+    (id, user_id, comment, created)
 VALUES
 (
+    1,
     1,
     'Hello! Hope you enjoy this sample zf application!',
     NOW()
 ),
 (
+    2,
     1,
     'Baz baz baz, baz baz Baz baz baz - baz baz baz.',
     NOW()
