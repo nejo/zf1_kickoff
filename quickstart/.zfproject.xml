@@ -34,10 +34,12 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="Guestbook"/>
+          <dbTableFile dbTableName="Videos"/>
         </dbTableDirectory>
         <modelFile modelName="GuestbookMapper"/>
         <modelFile modelName="Guestbook"/>
         <modelFile modelName="Users"/>
+        <modelFile modelName="Videos"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>

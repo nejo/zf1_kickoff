@@ -7,7 +7,7 @@ class VideosController extends Base_Controller_BaseController
     {
         $this->_setupUserFilter();
 
-        
+
     }
 
     protected function _setupUserFilter()
