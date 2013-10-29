@@ -31,6 +31,7 @@ class Application_Model_UsersMapper
         $data = array(
             'username'   => $user->getUsername(),
             'password' => $user->getPassword(),
+            'salt' => $user->getSalt(),
             'created' => date('Y-m-d H:i:s'),
             'role' => $user->getRole(),
             'name' => $user->getName(),
