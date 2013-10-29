@@ -2,7 +2,7 @@
 
 <?php foreach ($this->videos as $video) : ?>
 <div class="media">
-    <a class="pull-left" href="<?php echo $this->url(array('controller' => 'videos', 'action' => 'view'), 'default') ?>">
+    <a class="pull-left" href="<?php echo $this->url(array('id' => $video->id), 'videos_view') ?>">
         <img class="media-object" src="http://i1.ytimg.com/vi/<?php echo $this->escape($video->youtube_key) ?>/default.jpg">
     </a>
     <div class="media-body">
