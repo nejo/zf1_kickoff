@@ -1,6 +1,6 @@
 <?php
 
-class AuthController extends Base_Controller_BaseController
+class AuthController extends Core_Controller_BaseController
 {
 
     /**

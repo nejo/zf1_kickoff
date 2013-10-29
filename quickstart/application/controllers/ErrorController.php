@@ -1,6 +1,6 @@
 <?php
 
-class ErrorController extends Base_Controller_BaseController
+class ErrorController extends Core_Controller_BaseController
 {
 
     public function errorAction()
