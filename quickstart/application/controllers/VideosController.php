@@ -13,6 +13,8 @@ class VideosController extends Base_Controller_BaseController
 
     protected function _setupUserFilter()
     {
+        $this->view->headScript()->appendFile('/js/videos/filter.user.js');
+
         $filterForm = new Application_Form_Filter_User();
 
         $usersMapper = new Application_Model_Mapper_Users();
