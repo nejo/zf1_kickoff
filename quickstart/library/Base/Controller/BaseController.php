@@ -10,6 +10,8 @@ class Base_Controller_BaseController extends Zend_Controller_Action
         $this->_initMeta();
         $this->_initStylesheets();
         $this->_initJavascripts();
+
+        $this->view->messages = $this->_helper->flashMessenger->getMessages();
     }
 
     protected function _initDoctype()
