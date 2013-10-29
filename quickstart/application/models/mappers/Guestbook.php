@@ -27,8 +27,23 @@ class Application_Model_Mapper_Guestbook extends Application_Model_Mapper_Base
         }
         $row = $result->current();
         $guestbook->setId($row->id)
-                  ->setUserId($row->getUser()->id)
+                  ->setUser($row->getUser())
                   ->setComment($row->comment)
                   ->setCreated($row->created);
+    }
+
+    public function fetchAll()
+    {
+        $resultSet = $this->getDbTable()->fetchAll();
+        $entries   = array();
+        foreach ($resultSet as $row) {
+            $entry = new Application_Model_Guestbook();
+            $entry->setId($row->id)
+                ->setUser($row->getUser())
+                ->setComment($row->comment)
+                ->setCreated($row->created);
+            $entries[] = $entry;
+        }
+        return $entries;
     }
 }

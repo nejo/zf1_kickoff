@@ -36,16 +36,29 @@ class Application_Model_Mapper_Users extends Application_Model_Mapper_Base
         ->setCreated($row->created);
     }
 
+    public function fetchAll()
+    {
+        $resultSet = $this->getDbTable()->fetchAll();
+        $entries   = array();
+        foreach ($resultSet as $row) {
+            $entry = new Application_Model_Users();
+            $entry->setId($row->id)
+                ->setUsername($row->username)
+                ->setCreated($row->created);
+            $entries[] = $entry;
+        }
+        return $entries;
+    }
+
     /**
      * @return array
      */
     public function getUsersSelector()
     {
-        $usersList = $this->fetchAll();
         $usersSelector[0] = "Please choose";
 
-        foreach ($usersList as $value) {
-            $usersSelector[$value->id] = $value->username;
+        foreach ($this->fetchAll() as $value) {
+            $usersSelector[$value->getId()] = $value->getUsername();
         }
 
         return $usersSelector;

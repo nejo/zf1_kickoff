@@ -1,6 +1,6 @@
 <?php
 
-class Application_Model_Users
+class Application_Model_Videos
 {
     /**
      * @var int
@@ -10,32 +10,17 @@ class Application_Model_Users
     /**
      * @var string
      */
-    protected $_username;
+    protected $_title;
 
     /**
      * @var string
      */
-    protected $_password;
+    protected $_youtubeKey;
 
     /**
-     * @var string
+     * @var int
      */
-    protected $_salt;
-
-    /**
-     * @var string
-     */
-    protected $_role;
-
-    /**
-     * @var string
-     */
-    protected $_created;
-
-    /**
-     * @var string
-     */
-    protected $_name;
+    protected $_userId;
 
     public function __construct(array $options = null)
     {
@@ -86,75 +71,39 @@ class Application_Model_Users
         return $this->_id;
     }
 
-    public function setUsername($username)
+    public function setTitle($title)
     {
-        $this->_username = $username;
+        $this->_title = $title;
 
         return $this;
     }
 
-    public function getUsername()
+    public function getTitle()
     {
-        return $this->_username;
+        return $this->_title;
     }
 
-    public function setPassword($password)
+    public function setYoutubeKey($youtubeKey)
     {
-        $this->_password = $password;
+        $this->_youtubeKey = $youtubeKey;
 
         return $this;
     }
 
-    public function getPassword()
+    public function getYoutubeKey()
     {
-        return $this->_password;
+        return $this->_youtubeKey;
     }
 
-    public function getSalt()
+    public function setUserId($userId)
     {
-        return $this->_salt;
-    }
-
-    public function setSalt($salt)
-    {
-        $this->_salt = $salt;
+        $this->_userId = (int) $userId;
 
         return $this;
     }
 
-    public function setRole($role)
+    public function getUserId()
     {
-        $this->_role = $role;
-
-        return $this;
-    }
-
-    public function getRole()
-    {
-        return $this->_role;
-    }
-
-    public function setCreated($dateTime)
-    {
-        $this->_created = $dateTime;
-
-        return $this;
-    }
-
-    public function getCreated()
-    {
-        return $this->_created;
-    }
-
-    public function setName($name)
-    {
-        $this->_name = $name;
-
-        return $this;
-    }
-
-    public function getName()
-    {
-        return $this->_name;
+        return $this->_userId;
     }
 }	

@@ -15,6 +15,11 @@
                             'default',
                             true
                         ) ?>"><?php echo $this->translate('Guestbook'); ?></a></li>
+                    <li><a href="<?php echo $this->url(
+                            array('controller' => 'videos'),
+                            'default',
+                            true
+                        ) ?>"><?php echo $this->translate('Videos'); ?></a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <?php foreach ($this->loggedInAs() as $item) { ?>
@@ -40,6 +45,11 @@
         <div class="container">
             <?php echo $this->layout()->content ?>
         </div>
+
+        <div id="spinner">
+            <img src="/img/spinner.gif" />
+        </div>
+
 
         <?php echo $this->headScript() ?>
 	</body>

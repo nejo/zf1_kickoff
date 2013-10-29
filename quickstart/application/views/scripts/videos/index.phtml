@@ -1,0 +1,5 @@
+<?php echo $this->filterForm ?>
+
+<div id="videos_list" class="listing">
+    <?php echo $this->partialLoop('/videos/listing_item.phtml', $this->videos) ?>
+</div>
