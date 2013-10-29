@@ -1,6 +1,6 @@
 <?php
 
-class Base_Model_Mapper_Base
+class Core_Model_Mapper_Base
 {
     /**
      * @var mixed|Zend_Db_Table_Abstract
