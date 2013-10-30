@@ -1,12 +1,14 @@
 REPLACE INTO guestbook
-    (user_id, comment, created)
+    (id, user_id, comment, created)
 VALUES
 (
+    1,
     1,
     'Hello! Hope you enjoy this sample zf application!',
     NOW()
 ),
 (
+    2,
     1,
     'Baz baz baz, baz baz Baz baz baz - baz baz baz.',
     NOW()
@@ -46,9 +48,9 @@ VALUES
 REPLACE INTO videos
     (id, title, youtube_key, user_id)
 VALUES
-    (1, 'niagara falls', 'yuyu', 1),
-    (2, 'rainbow', 'yuyu link', 1),
-    (3, 'ac dc 2012 tour', 'yuyu', 2);
+    (1, 'niagara falls', 'A5ggG8PP7_U', 1),
+    (2, 'Queen of Savannah', 'e82BGIZh7yM', 1),
+    (3, 'AC DC 2001 tour M"unchen', '_ghN8yhh-AU', 2);
 
 REPLACE INTO channels_videos
     (channel_id, video_id)

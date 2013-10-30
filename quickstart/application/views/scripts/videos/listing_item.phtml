@@ -3,6 +3,8 @@
         <img class="media-object" src="http://i1.ytimg.com/vi/<?php echo $this->escape($this->model->getYoutubeKey()) ?>/default.jpg">
     </a>
     <div class="media-body">
-        <h4 class="media-heading"><?php echo $this->escape($this->model->getTitle()) ?></h4>
+        <a class="pull-left" href="<?php echo $this->url(array('id' => $this->model->getId()), 'videos_view') ?>">
+            <h4 class="media-heading"><?php echo $this->escape($this->model->getTitle()) ?></h4>
+        </a>
     </div>
 </div>
